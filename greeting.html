@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Greeting</title>
+    <script>
+        // Function to greet the user
+        function greetUser() {
+            // Get the name entered by the user
+            const name = document.getElementById('nameInput').value;
+
+            // Display the greeting with the user's name
+            const greetingMessage = `Well hello there, ${name}!`;
+            document.getElementById('greetingOutput').textContent = greetingMessage;
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Personalized Greeting Page</h1>
+    
+    <p>Please enter your name:</p>
+    
+    <!-- Input form for the user to enter their name -->
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    
+    <!-- Button to trigger the greeting -->
+    <button onclick="greetUser()">Submit</button>
+    
+    <!-- Placeholder for displaying the greeting -->
+    <p id="greetingOutput"></p>
+</body>
+</html>
