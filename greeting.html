@@ -29,9 +29,9 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999; /* Below the popup */
-
-            button { background-color: blue; }
         }
+        button { background-color: blue; } /* this doesn't work. */
+
     </style>
     <script>
         // Function is to show the popup
@@ -43,7 +43,7 @@
         // This is the greet the user function which then hides the popup after the name is typed.
         function greetUser() {
             const name = document.getElementById('nameInput').value;
-            const greetingMessage = `Hi, ${name}!`;
+            const greetingMessage = `Well hello there, ${name}!`;
             alert(greetingMessage); // Show greeting in an alert box
             
             // Hide the popup after greeting
