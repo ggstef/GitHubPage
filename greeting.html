@@ -4,30 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalized Greeting</title>
-    <script>
-        // Function to greet the user
-        function greetUser() {
-            // Get the name entered by the user
-            const name = document.getElementById('nameInput').value;
-
-            // Display the greeting with the user's name
-            const greetingMessage = `Well hello there, ${name}!`;
-            document.getElementById('greetingOutput').textContent = greetingMessage;
+    <style>
+        /* Basic styling for the popup */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            background-color: white;
+            padding: 20px;
+            z-index: 1000; /* Show on top of other elements */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
+        
+        /* Overlay to darken the background */
+        .overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999; /* Below the popup */
+        }
+    </style>
+    <script>
+        // Function to show the popup
+        function showPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        // Function to greet the user and hide the popup
+        function greetUser() {
+            const name = document.getElementById('nameInput').value;
+            const greetingMessage = `Well hello there, ${name}!`;
+            alert(greetingMessage); // Show greeting in an alert box
+            
+            // Hide the popup after greeting
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        // Show the popup when the page loads
+        window.onload = showPopup;
     </script>
 </head>
 <body>
     <h1>Welcome to the Personalized Greeting Page</h1>
-    
-    <p>Please enter your name:</p>
-    
-    <!-- Input form for the user to enter their name -->
-    <input type="text" id="nameInput" placeholder="Enter your name">
-    
-    <!-- Button to trigger the greeting -->
-    <button onclick="greetUser()">Submit</button>
-    
-    <!-- Placeholder for displaying the greeting -->
-    <p id="greetingOutput"></p>
+
+    <!-- Overlay for the popup -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Popup for user input -->
+    <div id="popup" class="popup">
+        <h2>Please enter your name:</h2>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <button onclick="greetUser()">Submit</button>
+    </div>
 </body>
 </html>
