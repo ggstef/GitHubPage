@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalized Greeting</title>
     <style>
-        /* Basic styling for the popup */
+        /* In this part of the code is the styling of the popup (css)  */
         .popup {
-            display: none; /* Hidden by default */
-            position: fixed;
+            display: none; /* means that it is hidden by default */
+            position: fixed; /* fixed position */
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
             border: 1px solid #ccc;
             background-color: white;
             padding: 20px;
-            z-index: 1000; /* Show on top of other elements */
+            z-index: 1000; /* Makes it show on top of other elements */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         
-        /* Overlay to darken the background */
+        /* this is the overlay. and this css is purposed to have the background darken when the popup is shown. */
         .overlay {
             display: none; /* Hidden by default */
             position: fixed;
@@ -32,13 +32,13 @@
         }
     </style>
     <script>
-        // Function to show the popup
+        // Function is to show the popup
         function showPopup() {
             document.getElementById('overlay').style.display = 'block';
             document.getElementById('popup').style.display = 'block';
         }
 
-        // Function to greet the user and hide the popup
+        // This is the greet the user function which then hides the popup after the name is typed.
         function greetUser() {
             const name = document.getElementById('nameInput').value;
             const greetingMessage = `Well hello there, ${name}!`;
